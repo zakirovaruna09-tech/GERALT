@@ -1,0 +1,35 @@
+# ══════════════════════════════════════════════════════════════════════
+#  GERALT — .gitignore
+# ══════════════════════════════════════════════════════════════════════
+
+# Секреты
+.env
+
+# Личные данные / состояние системы
+pin.json
+owner_id.json
+face_data.yml
+face_data.pkl
+geralt_log.txt
+*.log
+
+# Сгенерированные файлы (скрины, документы, фото нарушителей и т.д.)
+/Jarvis/
+/Geralt/
+*.png
+*.jpg
+*.jpeg
+!icon*.png
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+
+# Прочее
+*.tmp
+Thumbs.db
+.DS_Store
