@@ -1,53 +1,70 @@
 # GERALT v6.1
 
-Персональный ИИ-ассистент для Windows с голосовым управлением, Face ID, Telegram-ботом и интеграцией с ИИ (g4f / OpenRouter).
+A personal AI assistant for Windows with voice control, Face ID login, a Telegram bot, and AI integration (g4f / OpenRouter).
 
-## Возможности
-- Голосовое управление и синтез речи (edge-tts)
-- Вход по Face ID (OpenCV, LBPH) с fallback на PIN
-- Telegram-бот для удалённого управления
-- Чат с ИИ через g4f (бесплатные провайдеры) и/или OpenRouter
-- Анализ и генерация изображений через Hugging Face
-- Запуск Steam-игр, приложений, стеганография в изображениях
+## Features
+- Voice control and speech synthesis (edge-tts)
+- Face ID login (OpenCV, LBPH) with PIN fallback
+- Telegram bot for remote control
+- AI chat via g4f (free providers) and/or OpenRouter
+- Image analysis and generation via Hugging Face
+- Steam game/app launching, image steganography
 
-## Установка
+## Installation
 
-1. Установи Python 3.10+
-2. Клонируй репозиторий
-3. Скопируй `.env.example` в `.env` и заполни своими токенами:
+### Windows (recommended)
+1. Install Python 3.10+
+2. Clone the repository
+3. Copy `.env.example` to `.env` and fill in your own tokens:
    ```
    copy .env.example .env
    ```
-4. Запусти `install.bat` (Windows) — поставит зависимости, создаст `.env`, иконку и ярлык на рабочем столе
-5. Зарегистрируй лицо: `python face_auth.py`
-6. Запусти: `python main.py` (или через ярлык GERALT)
+4. Run `install.bat` — it installs dependencies and creates `.env`, an app icon, and a desktop shortcut
+5. Register your face: `python face_auth.py`
+6. Run: `python main.py` (or via the GERALT desktop shortcut)
 
-## Переменные окружения
+### Cross-platform (Linux/macOS, for review purposes)
+1. Install Python 3.10+
+2. Clone the repository
+3. Copy `.env.example` to `.env` and fill in your own tokens:
+   ```
+   cp .env.example .env
+   ```
+4. Install dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
+5. Run: `python main.py`
 
-См. `.env.example`. Обязательные:
-- `BOT_TOKEN` — токен Telegram-бота от @BotFather
-- `OWNER_ID` — твой Telegram user ID
+> Note: some features (Steam launching, desktop shortcut creation, certain system utilities) are Windows-specific. Voice, Telegram bot, and AI chat modules work cross-platform.
 
-Опциональные:
-- `GMAIL` / `GMAIL_APP_PASS` — для отправки писем
-- `HF_TOKEN` — для генерации/анализа изображений через Hugging Face
-- `GEMINI_KEY` / `GOOGLE_API_KEY` — опционально
+## Environment Variables
 
-**Никогда не коммить `.env` в git** — он уже в `.gitignore`.
+See `.env.example`. Required:
+- `BOT_TOKEN` — Telegram bot token from @BotFather
+- `OWNER_ID` — your Telegram user ID
 
-## Структура
+Optional:
+- `GMAIL` / `GMAIL_APP_PASS` — for sending emails
+- `HF_TOKEN` — for image generation/analysis via Hugging Face
+- `GEMINI_KEY` / `GOOGLE_API_KEY` — optional
 
-| Файл | Назначение |
+**Never commit `.env` to git** — it's already listed in `.gitignore`.
+
+## Project Structure
+
+| File | Purpose |
 |---|---|
-| `main.py` | Главное приложение, GUI (customtkinter) |
-| `config.py` | Конфигурация, загрузка `.env` |
-| `ai_core.py` | ИИ-чат через g4f, анализ/генерация изображений |
-| `bot_handler.py` | Telegram-бот |
-| `face_auth.py` | Face ID регистрация и аутентификация |
-| `system_utils.py` | Системные утилиты (процессы, приложения) |
-| `make_icon.py` | Генерация иконки приложения |
-| `create_shortcut.vbs` | Создание ярлыка на рабочем столе |
-| `install.bat` | Установщик зависимостей |
+| `main.py` | Main application, GUI (customtkinter) |
+| `config.py` | Configuration, loads `.env` |
+| `ai_core.py` | AI chat via g4f, image analysis/generation |
+| `bot_handler.py` | Telegram bot |
+| `face_auth.py` | Face ID registration and authentication |
+| `system_utils.py` | System utilities (processes, apps) |
+| `make_icon.py` | App icon generation |
+| `create_shortcut.vbs` | Desktop shortcut creation |
+| `install.bat` | Windows dependency installer |
+| `requirements.txt` | Cross-platform dependency list |
 
-## Лицензия
-Личный проект.
+## License
+Personal project.

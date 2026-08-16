@@ -1,0 +1,16 @@
+customtkinter
+pyTelegramBotAPI
+edge-tts
+requests
+psutil
+colorama
+python-dotenv
+pygame
+SpeechRecognition
+pyaudio
+Pillow
+pycryptodome
+python-docx
+pyautogui
+opencv-contrib-python
+numpy
