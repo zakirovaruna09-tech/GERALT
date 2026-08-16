@@ -1,0 +1,9 @@
+# Minimal dependencies to run bot_handler.py standalone on a server
+# (Railway, Render, etc.) — without the desktop GUI, voice, or Face ID
+# modules, which are Windows/desktop-only.
+pyTelegramBotAPI
+python-dotenv
+psutil
+requests
+g4f
+python-docx
