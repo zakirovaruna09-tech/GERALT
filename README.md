@@ -12,7 +12,7 @@ A personal AI assistant for Windows with voice control, Face ID login, a Telegra
 
 ## Installation
 
-### Windows (recommended)
+### Windows (recommended, full desktop app)
 1. Install Python 3.10+
 2. Clone the repository
 3. Copy `.env.example` to `.env` and fill in your own tokens:
@@ -20,10 +20,14 @@ A personal AI assistant for Windows with voice control, Face ID login, a Telegra
    copy .env.example .env
    ```
 4. Run `install.bat` — it installs dependencies and creates `.env`, an app icon, and a desktop shortcut
+   (or manually: `pip install -r requirements-desktop.txt`)
 5. Register your face: `python face_auth.py`
 6. Run: `python main.py` (or via the GERALT desktop shortcut)
 
-### Cross-platform (Linux/macOS, for review purposes)
+### Cross-platform (Telegram bot only, for review/deployment)
+`requirements.txt` in the repo root contains the minimal dependencies needed
+to run just the Telegram bot (`bot_handler.py`) — this is what's used for
+the deployed MVP demo, and works on Linux/macOS/any server.
 1. Install Python 3.10+
 2. Clone the repository
 3. Copy `.env.example` to `.env` and fill in your own tokens:
@@ -34,9 +38,11 @@ A personal AI assistant for Windows with voice control, Face ID login, a Telegra
    ```
    pip install -r requirements.txt
    ```
-5. Run: `python main.py`
+5. Run: `python bot_handler.py`
 
-> Note: some features (Steam launching, desktop shortcut creation, certain system utilities) are Windows-specific. Voice, Telegram bot, and AI chat modules work cross-platform.
+> Note: the full desktop app (GUI, voice, Face ID, Steam launching) is Windows-only —
+> see `requirements-desktop.txt` for those dependencies. The bot module
+> (Telegram commands, AI chat) works cross-platform.
 
 ## Environment Variables
 
